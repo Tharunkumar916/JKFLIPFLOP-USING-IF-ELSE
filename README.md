@@ -38,6 +38,19 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **PROGRAM**
 
+```
+module exjk(clk, j, k, qi, gbar);
+input j, k, clk;
+output reg qi;
+output gbar;
+always @(posedge clk)
+begin
+    qi = ((~qi) & j) | ((~k) & qi);
+end
+assign gbar = ~qi;
+endmodule
+```
+
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
